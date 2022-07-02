@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Game of life
+{% endblock title %}
+
+
+{% block body %}
+    <div>
+        <canvas id="gol" class="mx-2"></canvas>
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-center">
+        <div class="d-flex justify-content-between align-content-center">
+        <button id="start_btn" class="btn btn-primary mx-2" onclick="startTimer()">Start</button>
+        <span id="timer" class="mx-2 mt-1" value="arrr"></span>
+        <button id="stop_btn"  class="btn btn-primary mx-2" onclick="stopTimer()">Stop</button>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <button id="saver"  class="btn btn-lg btn-success mt-2 invisible" onclick="save()">Save result!</button>
+    </div>
+{% endblock body %}

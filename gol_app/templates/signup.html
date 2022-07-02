@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign up
+{% endblock title %}
+
+
+{% block body %}
+    <div class="container">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.username.label(class='form-label') }}
+                {{ form.username(class='form-control') }}
+                {% for error in form.username.errors %}
+                    <span class="d-inline-block alert alert-warning mt-1 mb-0 p-1 fs-6">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label(class='form-label') }}
+                {{ form.password(class='form-control') }}
+            </div>    
+            <div class="mb-3">
+                {{ form.password_again.label(class='form-label') }}
+                {% for error in form.password_again.errors %}
+                    <span class="d-inline-block alert alert-warning mt-1 mb-0 p-1 fs-6">{{ error }}</span>
+                {% endfor %}
+                {{ form.password_again(class='form-control') }}
+            </div>
+            <div class="mb-3">
+                {{ form.email.label(class='form-label') }}
+                {% for error in form.email.errors %}
+                    <span class="d-inline-block alert alert-warning mt-1 mb-0 p-1 fs-6">{{ error }}</span>
+                {% endfor %}
+                {{ form.email(class='form-control') }}
+            </div>
+            <div class="mb-3">
+                {{ form.about.label(class='form-label') }}
+                {{ form.about(class='form-control') }}
+            </div>
+            <div class="mb-3">
+                {{ form.submit(class='btn btn-success') }}
+            </div>
+        </form>
+    </div>
+{% endblock body %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Account
+{% endblock title %}
+
+
+{% block body %}
+    <div class="container d-flex justify-content-center flex-column align-content-center">
+        <div class="card mb-3 d-flex justify-content-center flex-column align-content-center" style="max-width: auto;">
+            <div class="row g-0">
+              <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text fs-3">Username: {{current_user.username}}</p>
+                  {% if current_user.email %}
+                    <p class="card-text">Email: {{current_user.email}}</p>
+                  {% endif %}
+                  {% if current_user.about %}
+                    <p class="card-text">{{current_user.about}}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          
+        <table class="table table-striped p-3">
+            <h4 class="card-title  p-3">Scores:</h5>
+            <thead>
+              <tr>
+                <th scope="col">Score</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for score in current_user.scores %}
+                <tr>
+                    <td>{{ score.score }}</td>
+                    <td>{{ score.date }}</td>
+                </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock body %}
